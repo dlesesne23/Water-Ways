@@ -54,6 +54,8 @@ Water-Ways was created due to a desire for more efficient boat tours and boat tr
 
 **Scheduling a Ride**: As this is a small app unique to the community of Towne Lake, wait times might be higher than desired. As a user, I should be able to book a ride in advanced, and if wait times are higher than normal during your desired ride, a user should be given the option to book in advanced as an alternative option.
 
+**Payment**: As a user, I should be able to pay through the app and receive payment (as a driver) through the app.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
