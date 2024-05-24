@@ -4,12 +4,11 @@ A ride sharing app, but for boats around a beautiful lake
 
 ### Built With
 
-* [![React][React.js]][React-url]
-* [![Tailwind CSS][Tailwind.js]][Tailwind-url]
-* [![NPM][NPM.js]][NPM-url]
-* [![jQuery][jQuery.js]][jQuery-url]
-* [![ChatGPT][ChatGPT.js]][ChatGPT-url]
-* [![DallE][DallE.js]][DallE-url]
+* Mongoose
+* Express.js
+* React
+* React Native
+* Node.js
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
