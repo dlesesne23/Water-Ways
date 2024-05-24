@@ -6,7 +6,6 @@ A ride sharing app, but for boats around a beautiful lake
 
 * [![React][React.js]][React-url]
 * [![Tailwind CSS][Tailwind.js]][Tailwind-url]
-* [![Spotify][Spotify.js]][Spotify-url]
 * [![NPM][NPM.js]][NPM-url]
 * [![jQuery][jQuery.js]][jQuery-url]
 * [![ChatGPT][ChatGPT.js]][ChatGPT-url]
@@ -20,9 +19,9 @@ A ride sharing app, but for boats around a beautiful lake
 
 ## Roadmap
 
-- See my [Lucid Board]() for our ERD and Routes Table.
+- See my [Figma](https://www.figma.com/design/r6XLNVrACpK1lUC7x0EudJ/Water-Ways?m=dev&node-id=0-1&t=Urdz96otP1DhngCm-1) for a comprehensive list of my Wireframe and Proposed Features.
 
-- See my [Lucid Board]()for a comprehensive list of our Wireframe and Proposed Features.
+- See my [Lucid Board](https://lucid.app/lucidchart/5536cc0b-cd94-4387-81a6-2fc588565d17/edit?view_items=IlJETfho35gv&invitationId=inv_6d5e1411-0384-4eb0-ba09-7f0483c5204c) for my ERD and route tables.
 
 - See my [Trello Board](https://trello.com/b/3lKdqciY/water-ways) for MVP and stretch goals.
 
