@@ -22,7 +22,7 @@ A ride sharing app, but for boats around a beautiful lake
 
 - See my [Lucid Board](https://lucid.app/lucidchart/5536cc0b-cd94-4387-81a6-2fc588565d17/edit?view_items=IlJETfho35gv&invitationId=inv_6d5e1411-0384-4eb0-ba09-7f0483c5204c) for my ERD and route tables.
 
-- See my [Trello Board](https://trello.com/b/3lKdqciY/water-ways) for MVP and stretch goals.
+- See my [Trello Board](https://trello.com/invite/b/3lKdqciY/ATTIe621f9243fd5cee683f88c1aec9f1b922B10576C/water-ways) for MVP and stretch goals.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
