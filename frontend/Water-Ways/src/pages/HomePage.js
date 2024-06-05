@@ -1,14 +1,23 @@
 import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { Icon } from 'react-native-elements'
 import React from 'react'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-import { colors, parameters } from '../src/global/styles'
+import { colors, parameters } from '../global/styles'
 
 const HomePage = () => {
   return (
-    <View>
-      <Text>Home Page</Text>
+    <View style = {styles.container}>
+      <View style = {styles.header}>
+        <View style = {styles.icon1}>
+            <Icon type = "material-community"
+                  name = "menu"
+                  color = {colors.white}
+                  size = {40}  
+             />
+        </View>
+      </View>
     </View>
   )
 }
