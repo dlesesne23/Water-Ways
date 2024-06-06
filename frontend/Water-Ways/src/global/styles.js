@@ -39,7 +39,7 @@ export const colors = {
 
 
 export const parameters ={
-    statusBarHeight :getStatusBarHeight(),
+    // statusBarHeight :getStatusBarHeight(),
     headerHeight:70,
 
     styledButton:{

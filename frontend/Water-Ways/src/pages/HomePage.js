@@ -1,5 +1,7 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, ScrollView, FlatList } from 'react-native'
 import { Icon } from 'react-native-elements'
+import { StatusBar } from 'expo-status-bar'
+import MapView, { PROVIDER_GOOGLE,} from 'react-native-maps'
 import React from 'react'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -18,6 +20,91 @@ const HomePage = () => {
              />
         </View>
       </View>
+      <ScrollView bounces = {false}>
+        <View style = {styles.home}>
+            <Text style = {styles.text1}>Take the Scenic Route!</Text>
+            <View style = {styles.view1}>
+                <View style = {styles.view8}>
+                    <Text style = {styles.text2}>Want a change from your normal commute around your community. Take the Water Way and enjoy a nice boat ride to the boardwalk, a restaurant, or to your friends house!</Text>
+                    <View style = {styles.button1}>
+                        <Text style = {styles.button1Text}>Ride</Text>
+                    </View>
+                </View>
+            </View>
+        </View>
+        <View style = {styles.view3}>
+            <Text style = {styles.text3}>Where To?</Text>
+            <View style = {styles.view4}>
+                <Icon type = "material-community"
+                    name = "clock"
+                    color = {colors.grey1}
+                    size = {26}  
+                />
+                <Text style = {{marginLeft:5}}>Now</Text>
+                <Icon type = "material-community"
+                  name = "chevron-down"
+                  color = {colors.white}
+                  size = {40}  
+                />
+            </View>
+        </View>
+        <View style = {styles.view5}>
+            <View style = {styles.view6}>
+                <View style = {styles.view7}>
+                    <Icon type = "material-community"
+                    name = "map-marker"
+                    color = {colors.black}
+                    size = {22}  
+                    />
+                </View>
+                <View>
+                    <Text style = {{fontSize:18, color:colors.black}}>9945 Barker Cypress Rd Suite 123,</Text>
+                    <Text style = {{color:colors.grey3}}>Cypress, TX 77433</Text>
+                </View>
+                <View>
+                    <Icon type = "material-community"
+                        name = "chevron-right"
+                        color = {colors.grey}
+                        size = {26}  
+                        />
+                </View>
+            </View>
+        </View>
+
+        <View style = {{...styles.view5, borderBottomWidth:0}}>
+            <View style = {styles.view6}>
+                <View style = {styles.view7}>
+                    <Icon type = "material-community"
+                    name = "map-marker"
+                    color = {colors.black}
+                    size = {22}  
+                    />
+                </View>
+                <View>
+                    <Text style = {{fontSize:18, color:colors.black}}>9945 Barker Cypress Rd Suite 123,</Text>
+                    <Text style = {{color:colors.grey3}}>Cypress, TX 77433</Text>
+                </View>
+                <View>
+                    <Icon type = "material-community"
+                        name = "chevron-right"
+                        color = {colors.grey}
+                        size = {26}  
+                        />
+                </View>
+            </View>
+        </View>
+
+        <Text style ={styles.text4}>Around You</Text>
+
+        <View style = {{alignItems:"center", justifyContent:"center"}}>
+            <MapView
+                provider = {PROVIDER_GOOGLE}
+                style = {styles.map}
+            >
+            </MapView>
+        </View>
+      </ScrollView>
+      <StatusBar style = "light" backgroundColor = "#2058c0" translucent = {true} />
     </View>
   )
 }

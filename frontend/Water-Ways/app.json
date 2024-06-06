@@ -13,14 +13,25 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dlesesne23.Water-Ways",
+      "config": {
+       "googleMapsApiKey": "AIzaSyAxc30Fm7Y5WUiHIZ-l12t2vMy0yAamgnw"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.dlesesne23.WaterWays"
+      "package": "com.dlesesne23.WaterWays",
+      "config":{
+        "googleMaps":{
+          "apiKey": "AIzaSyAxc30Fm7Y5WUiHIZ-l12t2vMy0yAamgnw"
+        },
+
+        "permissions":["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION", "FOREGROUND_SERVICE"]
+      } 
     },
     "web": {
       "bundler": "metro",
