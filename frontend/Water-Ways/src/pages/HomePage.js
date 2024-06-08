@@ -2,13 +2,50 @@ import { StyleSheet, Text, View, Dimensions, ScrollView, FlatList } from 'react-
 import { Icon } from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar'
 import MapView, { PROVIDER_GOOGLE,} from 'react-native-maps'
-import React from 'react'
+import * as Location from 'expo-location'
+import React, { useState, useRef, useEffect } from 'react'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
 import { colors, parameters } from '../global/styles'
+import { mapStyle } from '../global/map'
 
 const HomePage = () => {
+
+const [latlng, setLatLng] = useState({})
+
+const checkPermission = async () => {
+    const hasPermission = await Location.requestForegroundPermissionsAsync()
+    if (hasPermission.status === 'granted') {
+        const permission = await askPermission()
+        return permission
+    }
+}
+
+const askPermission = async () => {
+    const permission = await Location.requestForegroundPermissionsAsync()
+    return permission.status === 'granted'
+}
+
+const getLocation = async() => {
+    try {
+        const { granted } = await Location.requestForegroundPermissionsAsync()
+        if(!granted) return
+        const {
+            coords:{latitude, longitude},
+        } = await Location.getCurrentPositionAsync()
+        setLatLng({latitude:latitude, longitude:longitude})
+    } catch(err) {}
+}
+
+const _map = useRef(1)
+
+useEffect(() => {
+    checkPermission()
+    getLocation()
+    console.log(latlng)
+,[]})
+
   return (
     <View style = {styles.container}>
       <View style = {styles.header}>
@@ -98,8 +135,15 @@ const HomePage = () => {
 
         <View style = {{alignItems:"center", justifyContent:"center"}}>
             <MapView
+                ref = {_map}
                 provider = {PROVIDER_GOOGLE}
                 style = {styles.map}
+                customMapStyle = {mapStyle}
+                showsUserLocation = {true}
+                followsUserLocation = {true}
+                rotateEnabled = {true}
+                zoomEnabled = {true}
+                toolbarEnabled = {true}
             >
             </MapView>
         </View>
