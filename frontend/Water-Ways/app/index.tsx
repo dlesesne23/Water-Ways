@@ -1,14 +1,12 @@
+import 'react-native-gesture-handler';
 import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import RootNavigator from '../src/navigations/RootNavigator'
 import React from 'react'
 
 
-import HomePage from '../src/pages/HomePage'
-
 const index = () => {
   return (
-    <View style={styles.container}>
-      <HomePage />
-    </View>
+    <RootNavigator />
   )
 }
 

@@ -3,7 +3,7 @@ import React from 'react'
 
 const RidePage = () => {
   return (
-    <View>
+    <View style = {styles.container}>
       <Text>Ride Page</Text>
     </View>
   )
@@ -11,4 +11,8 @@ const RidePage = () => {
 
 export default RidePage
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20
+  }
+})

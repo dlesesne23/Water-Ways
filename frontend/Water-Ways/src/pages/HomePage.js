@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions, ScrollView, FlatList } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, ScrollView, FlatList, TouchableOpacity } from 'react-native'
 import { Icon } from 'react-native-elements'
 import { StatusBar } from 'expo-status-bar'
 import MapView, { PROVIDER_GOOGLE,} from 'react-native-maps'
@@ -10,7 +10,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 import { colors, parameters } from '../global/styles'
 import { mapStyle } from '../global/map'
 
-const HomePage = () => {
+const HomePage = ({navigation}) => {
 
 const [latlng, setLatLng] = useState({})
 
@@ -63,9 +63,11 @@ useEffect(() => {
             <View style = {styles.view1}>
                 <View style = {styles.view8}>
                     <Text style = {styles.text2}>Want a change from your normal commute around your community. Take the Water Way and enjoy a nice boat ride to the boardwalk, a restaurant, or to your friends house!</Text>
-                    <View style = {styles.button1}>
-                        <Text style = {styles.button1Text}>Ride</Text>
-                    </View>
+                    <TouchableOpacity onPress ={() => {navigation.navigate("RidePage")}}>
+                        <View style = {styles.button1}>
+                            <Text style = {styles.button1Text}>Ride</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
