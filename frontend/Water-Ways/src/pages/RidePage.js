@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
+import { colors } from '../global/styles'
 import React from 'react'
 
 const RidePage = () => {
@@ -13,6 +14,6 @@ export default RidePage
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20
+    paddingTop: parameters.statusHeight
   }
 })

@@ -71,6 +71,27 @@ useEffect(() => {
                 </View>
             </View>
         </View>
+
+        <View>
+            <FlatList 
+                numRows ={4}
+                horizontal = {true}
+                showsHorizontalScrollIndicator ={false}
+                data ={filterData}
+                keyExtractor = {(item)=>item.id}
+                renderItem = { ({item})=>(
+                    <View style = {styles.card}>
+                        <View style ={styles.view2}>
+                            <Image style ={styles.image2} source = {item.image} />
+                        </View>
+                        <View>
+                            <Text style ={styles.title}>{item.name}</Text>
+                        </View>
+                    </View>
+                )}
+            />
+        </View>
+
         <View style = {styles.view3}>
             <Text style = {styles.text3}>Where To?</Text>
             <View style = {styles.view4}>
@@ -87,6 +108,7 @@ useEffect(() => {
                 />
             </View>
         </View>
+
         <View style = {styles.view5}>
             <View style = {styles.view6}>
                 <View style = {styles.view7}>
@@ -96,10 +118,12 @@ useEffect(() => {
                     size = {22}  
                     />
                 </View>
+
                 <View>
                     <Text style = {{fontSize:18, color:colors.black}}>9945 Barker Cypress Rd Suite 123,</Text>
                     <Text style = {{color:colors.grey3}}>Cypress, TX 77433</Text>
                 </View>
+
                 <View>
                     <Icon type = "material-community"
                         name = "chevron-right"
@@ -119,10 +143,12 @@ useEffect(() => {
                     size = {22}  
                     />
                 </View>
+
                 <View>
                     <Text style = {{fontSize:18, color:colors.black}}>9945 Barker Cypress Rd Suite 123,</Text>
                     <Text style = {{color:colors.grey3}}>Cypress, TX 77433</Text>
                 </View>
+                
                 <View>
                     <Icon type = "material-community"
                         name = "chevron-right"
