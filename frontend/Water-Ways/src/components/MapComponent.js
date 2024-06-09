@@ -41,7 +41,7 @@ export default class MapComponent extends Component {
                      { this.props.userOrigin.latitude != null &&   
                         <MapView.Marker coordinate = {this.props.userOrigin} anchor = {{x:0.5,y:0.5}} >
                             <Image 
-                                source ={require('../../assets/location.png')}
+                                source ={require('../../assets/images/location.png')}
                                 style ={styles.markerOrigin2}
                                 resizeMode ="cover"
                             />
@@ -50,7 +50,7 @@ export default class MapComponent extends Component {
                      { this.props.userDestination.latitude != null &&   
                         <MapView.Marker coordinate = {this.props.userDestination} anchor = {{x:0.5,y:0.5}} >
                             <Image 
-                                source ={require('../../assets/location.png')}
+                                source ={require('../../assets/images/location.png')}
                                 style ={styles.markerDestination}
                                 resizeMode ="cover"
                             />

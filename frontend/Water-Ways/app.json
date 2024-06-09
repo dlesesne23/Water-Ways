@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dlesesne23.Water-Ways",
+      "bundleIdentifier": "com.dlesesne23.WaterWays",
       "config": {
        "googleMapsApiKey": "AIzaSyAxc30Fm7Y5WUiHIZ-l12t2vMy0yAamgnw"
       }
