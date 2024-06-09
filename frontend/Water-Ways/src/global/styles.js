@@ -1,10 +1,10 @@
-// import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 // 44 - on iPhoneX
 // 20 - on iOS device
 // X - on Android platfrom (runtime value)
 // 0 - on all other platforms (default)
-//console.log(getStatusBarHeight());
+console.log(getStatusBarHeight());
 
 // will be 0 on Android, because You pass true to skipAndroid
 //console.log(getStatusBarHeight(true));
@@ -38,8 +38,8 @@ export const colors = {
 }
 
 
-export const parameters ={
-    // statusBarHeight :getStatusBarHeight(),
+export const parameters = {
+    statusBarHeight : getStatusBarHeight(),
     headerHeight:70,
 
     styledButton:{

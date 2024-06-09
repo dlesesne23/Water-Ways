@@ -1,6 +1,6 @@
 import { Text, StyleSheet, View, Image } from 'react-native'
 import MapView, { PROVIDER_GOOGLE,} from 'react-native-maps'; 
-import { colors, parameters } from '../global/styles';
+import { colors } from '../global/styles';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import React, { Component } from 'react'

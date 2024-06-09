@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef, useMemo, useCallback } from 'react'
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native'
-import { colors } from '../global/styles'
+import { colors, parameters } from '../global/styles'
 import MapComponent from '../components/MapComponent'
 import { rideData } from '../global/data'
 import { Avatar, Icon} from 'react-native-elements'
