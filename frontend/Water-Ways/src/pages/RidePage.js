@@ -9,7 +9,7 @@ import { Avatar, Icon} from 'react-native-elements'
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-export default function RequestScreen({navigation,route}) {
+export default function RidePage({navigation,route}) {
   const {origin, dispatchOrigin} = useContext(OriginContext)
   const [userOrigin, setUserOrigin] = useState({latitude:origin.latitude,
                                                 longitude:origin.longitude})
