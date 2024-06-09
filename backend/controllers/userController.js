@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 // For creating and verifying JSON Web Tokens (JWT)
 const jwt = require('jsonwebtoken');
 // Require the JWT config
-const config = require("../jwt.config")
+// const config = require("../jwt.config")
 
 // SIGNUP
 router.post('/signup', async (req, res) => {
