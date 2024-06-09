@@ -1,10 +1,10 @@
 import React from "react";
 import { View, SafeAreaView, Image } from "react-native";
 import tw from "tailwind-react-native-classnames";
-import NavFavourites from "../components/NavFavourites";
+import NavFavorites from "../components/NavFavorites";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { useDispatch } from "react-redux";
-import { setDestination, setOrigin } from "../slices/navSlice";
+import { setDestination, setOrigin } from "../reducers/navSlice";
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import NavOptions from "../components/NavOptions";
 
@@ -52,7 +52,7 @@ const HomePage = () => {
         />
 
         <NavOptions />
-        <NavFavourites />
+        <NavFavorites />
       </View>
     </SafeAreaView>
   );

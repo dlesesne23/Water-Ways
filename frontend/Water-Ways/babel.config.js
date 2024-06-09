@@ -12,7 +12,7 @@ module.exports = function(api) {
       safe: false,
       allowUndefined: true,
     }
-], ['react-native-reanimated/plugin',],
+], ['nativewind/babel', 'react-native-reanimated/plugin',],
 
     ]
   };

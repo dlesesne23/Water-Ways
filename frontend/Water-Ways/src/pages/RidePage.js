@@ -2,10 +2,10 @@ import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { Icon } from "react-native-elements/dist/icons/Icon";
-import NavigateCard from "../components/NavigateCard";
+import NavCard from "../components/NavCard";
 import { createStackNavigator } from "@react-navigation/stack";
-import RideOptionsCard from "../components/RideOptionsCard";
-import Map from "../components/Map";
+import RideOptions from "../components/RideOptions";
+import MapComponent from "../components/MapComponent";
 import { useNavigation } from "@react-navigation/native";
 
 const RidePage = () => {
@@ -24,20 +24,20 @@ const RidePage = () => {
       </TouchableOpacity>
 
       <View style={tw`h-1/2`}>
-        <Map />
+        <MapComponent />
       </View>
       <View style={tw`h-1/2`}>
         <Stack.Navigator>
           <Stack.Screen
-            name="NavigateCard"
-            component={NavigateCard}
+            name="NavCard"
+            component={NavCard}
             options={{
               headerShown: false,
             }}
           />
           <Stack.Screen
-            name="RideOptionsCard"
-            component={RideOptionsCard}
+            name="RideOptions"
+            component={RideOptions}
             options={{
               headerShown: false,
             }}
