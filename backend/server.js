@@ -17,7 +17,7 @@ app.use(express.json())
 // const morgan = require("morgan")
 // app.use(morgan("tiny"))
 
-app.use("/User", userCtrl)
+app.use("/user", userCtrl)
 
 //I.N.D.U.C.E.S.
 // Index route

@@ -31,14 +31,14 @@ export default function App() {
             keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
           > 
             <Stack.Navigator>
-              {/* <Stack.Screen
+              <Stack.Screen
                 name="LoginPage"
                 component={LoginPage}
-              /> */}
-              {/* <Stack.Screen
+              />
+              <Stack.Screen
                 name="SignupPage"
                 component={SignupPage}
-              /> */}
+              />
               <Stack.Screen
                 name="HomePage"
                 component={HomePage}
