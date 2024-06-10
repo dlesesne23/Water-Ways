@@ -1,15 +1,14 @@
 require('dotenv').config();
 const router = require('express').Router();
 // Axios takes the response from external API and stores data it in 
-const axios = require("axios")
+// const axios = require("axios")
 // Database models
 const db = require('../models');
 // For hashing passwords
 const bcrypt = require('bcrypt');
 // For creating and verifying JSON Web Tokens (JWT)
 const jwt = require('jsonwebtoken');
-// Require the JWT config
-const config = require("../jwt.config")
+
 
 // SIGNUP
 router.post('/signup', async (req, res) => {
@@ -24,7 +23,7 @@ router.post('/signup', async (req, res) => {
       const newUser = new db.User({
         username: username,
         email: email,
-        password: password
+        password: password,
       });
       // Save the new user
       await newUser.save();
@@ -134,3 +133,5 @@ router.get('/:id', async (req, res) => {
     const token = createToken(updatedUser);
     res.status(200).json({ token, user: updatedUser });
   });
+
+  module.exports = router;
