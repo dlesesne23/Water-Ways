@@ -7,7 +7,7 @@ import {
   selectDestination,
   selectOrigin,
   setTravelTimeInformation,
-} from "../reducers/navSlice";
+} from "../slices/navSlice";
 import tw from "tailwind-react-native-classnames";
 import { GOOGLE_MAPS_APIKEY } from "@env";
 

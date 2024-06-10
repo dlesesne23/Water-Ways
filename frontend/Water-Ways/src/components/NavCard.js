@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { setDestination } from "../reducers/navSlice";
+import { setDestination } from "../slices/navSlice";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { Icon } from "react-native-elements";
 import tw from "tailwind-react-native-classnames";

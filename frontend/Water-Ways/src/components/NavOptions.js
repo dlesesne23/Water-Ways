@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
-import { selectOrigin } from "../reducers/navSlice";
+import { selectOrigin } from "../slices/navSlice";
 
 const data = [
   {

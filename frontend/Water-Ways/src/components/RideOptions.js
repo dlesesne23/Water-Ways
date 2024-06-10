@@ -11,7 +11,7 @@ import { Icon } from "react-native-elements";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { selectTravelTimeInformation } from "../reducers/navSlice";
+import { selectTravelTimeInformation } from "../slices/navSlice";
 import { useSelector } from "react-redux";
 
 const RideOptions = () => {

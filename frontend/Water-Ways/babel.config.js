@@ -7,12 +7,8 @@ module.exports = function(api) {
     {
       moduleName:"@env",
       path:".env",
-      blacklist: null,
-      whitelist: null,
-      safe: false,
-      allowUndefined: true,
     }
-], ['nativewind/babel', 'react-native-reanimated/plugin',],
+], ["nativewind/babel"], ['react-native-reanimated/plugin'],
 
     ]
   };
