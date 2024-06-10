@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
 
 require("dotenv").config()
 
@@ -7,7 +8,8 @@ require("dotenv").config()
 const userCtrl = require("./controllers/userController")
 
 // Middleware
-// app.use(cors());             
+const corsOptions = { origin: ['http://localhost:19006', 'http://192.168.1.x:19000'] } // Replace with your actual Expo IPcredentials: true, // Allow credentials if neededmethods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], };
+app.use(cors(corsOptions));             
 // app.use(cookieParser());
 //Promise based HTTP client for making requests to external API
 // const axios = require("axios") 
