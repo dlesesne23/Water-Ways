@@ -25,19 +25,19 @@ const RideOptions = () => {
   const data = [
     {
       id: "Uber-X-123",
-      title: "UberX",
+      title: "Golf Cart",
       multiplier: 1,
       image: require("../../assets/images/uberX.png"),
     },
     {
       id: "Uber-XL-456",
-      title: "Uber XL",
+      title: "Boat", // Coming Soon
       multiplier: 1.2,
       image: require("../../assets/images/uberVan.png"),
     },
     {
       id: "Uber-LUX-789",
-      title: "Uber LUX",
+      title: "LUX", // Coming Soon
       multiplier: 1.75,
       image: require("../../assets/images/uberBlack.png"),
     },
@@ -79,9 +79,9 @@ const RideOptions = () => {
               <Text>{travelTimeInformation?.duration.text} Travel Time</Text>
             </View>
             <Text style={tw`text-lg`}>
-              {new Intl.NumberFormat("en-gb", {
+              {new Intl.NumberFormat("en-us", {
                 style: "currency",
-                currency: "GBP",
+                currency: "USD",
               }).format(
                 (travelTimeInformation?.duration.value *
                   SURGE_CHARGE_RATE *

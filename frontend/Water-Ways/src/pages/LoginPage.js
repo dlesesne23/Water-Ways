@@ -2,10 +2,34 @@ import { View, Text, Image, TextInput } from 'react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigate } from '@react-navigation/native';
+import { useState } from 'react'
 
-export default function LoginPage() {
-    const navigation = useNavigation()
+const LoginPage = ({ onSignin }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate()
+    const handleSignin = async (e) => {
+      e.preventDefault();
+      const response = await fetch(`${import.meta.env.VITE_APP_CLIENT_BACKEND_URL}/user/signin`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          password
+        })
+      });
+      const accessToken = ' ';
+      const res = await response.json()
+      console.log(res)
+      // Call the onSignIn function passed from the parent component
+      onSignin(res.user);
+      localStorage.setItem('token', res.token)
+  navigate("/")
+    };
+
   return (
     <View className="bg-white h-full w-full">
         <StatusBar style="light" />
@@ -45,3 +69,5 @@ export default function LoginPage() {
     </View>
   )
 }
+
+export default LoginPage

@@ -18,13 +18,13 @@ const data = [
     id: "123",
     title: "Get a ride",
     image: require("../../assets/images/ride.png"),
-    screen: "MapScreen",
+    screen: "RidePage",
   },
   {
     id: "456",
     title: "Order food",
     image: require("../../assets/images/food.png"),
-    screen: "EatsScreen", // Change in future...
+    screen: "EatsScreen", // Pending
   },
 ];
 

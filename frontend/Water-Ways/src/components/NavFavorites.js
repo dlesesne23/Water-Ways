@@ -15,13 +15,13 @@ export default function NavFavorites() {
       id: "123",
       icon: "home",
       location: "Home",
-      destination: "Code Street, London, UK",
+      destination: "111 Coves Ln, Cypress, TX",
     },
     {
       id: "456",
       icon: "briefcase",
       location: "Work",
-      destination: "London Eye, London, UK",
+      destination: "1234 Houston Rd, Houston, TX",
     },
   ];
 

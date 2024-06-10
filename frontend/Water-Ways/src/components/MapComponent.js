@@ -20,7 +20,6 @@ const MapComponent = () => {
   useEffect(() => {
     if (!origin || !destination) return;
 
-    // Zoom & fit to markers
     mapRef.current.fitToSuppliedMarkers(["origin", "destination"], {
       edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
     });
@@ -62,7 +61,7 @@ const MapComponent = () => {
           destination={destination.description}
           apikey={GOOGLE_MAPS_APIKEY}
           strokeWidth={3}
-          strokeColor="black"
+          strokeColor="blue"
         />
       )}
 

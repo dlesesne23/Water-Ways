@@ -1,5 +1,5 @@
 import React from "react";
-import { View, SafeAreaView, Image } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import NavFavorites from "../components/NavFavorites";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
