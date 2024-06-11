@@ -34,8 +34,8 @@ export default function App() {
               {/* <Stack.Screen
                 name="LoginPage"
                 component={LoginPage}
-              /> */}
-              {/* <Stack.Screen
+              />
+              <Stack.Screen
                 name="SignupPage"
                 component={SignupPage}
               /> */}
