@@ -8,6 +8,9 @@ A ride sharing app, but for boats around a beautiful lake
 * Express.js
 * React
 * React Native
+* React Redux
+* Google Maps API
+* Google Autocomplete API
 * Node.js
 
 <p align="right">(<a href="#top">back to top</a>)</p>
