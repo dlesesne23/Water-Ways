@@ -32,7 +32,7 @@ A ride sharing app, but for boats around a beautiful lake
 
 ## Project Origins
 
-Water-Ways was created due to a desire for more efficient boat tours and boat travel. I live in a community right along a beautiful lake. My community has many different restaurants and places around the lake. Getting around by boat is the most efficient, and most scenic way to travel within the community. While our community does offer a boat taxi, it is a very inefficient system that requires you to book 24 hours in advance. This is a very dated system. My goal is to create a system that allows the many boat owners to make a little extra money, while creating a much more efficient system for tours and taxis.
+Water-Ways was created due to a desire for more efficient boat tours and boat travel. I live in a community right along a beautiful lake. My community has many different restaurants and places around the lake. Getting around by boat is the most efficient, and most scenic way to travel within the community. Admittedly, this is a bit difficult to implement due to licensing, so I decided to expand to Golf Cart ride sharing. Many people have golf carts and our community sidewalks are actually modified to allow golf cart transportation. Hence why I decided to add a golf cart factor here. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
