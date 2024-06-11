@@ -26,19 +26,19 @@ const RideOptions = () => {
     {
       id: "Uber-X-123",
       title: "Golf Cart",
-      multiplier: 1,
+      multiplier: 0.75,
       image: require("../../assets/images/uberX.png"),
     },
     {
       id: "Uber-XL-456",
       title: "Boat", // Coming Soon
-      multiplier: 1.2,
+      multiplier: 1,
       image: require("../../assets/images/uberVan.png"),
     },
     {
       id: "Uber-LUX-789",
       title: "LUX", // Coming Soon
-      multiplier: 1.75,
+      multiplier: 1.25,
       image: require("../../assets/images/uberBlack.png"),
     },
   ];
