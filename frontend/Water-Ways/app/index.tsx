@@ -10,6 +10,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import LoginPage from "../src/pages/LoginPage";
 import SignupPage from "../src/pages/SignupPage";
 import { View, Text } from "react-native";
+import UpdateUserProfile from "../src/pages/UpdateUserProfile";
 
 // The Google API's we use in this project are:
 // https://console.cloud.google.com/google/maps-apis/api-list
@@ -34,11 +35,11 @@ export default function App() {
               {/* <Stack.Screen
                 name="LoginPage"
                 component={LoginPage}
-              />
+              /> */}
               <Stack.Screen
                 name="SignupPage"
                 component={SignupPage}
-              /> */}
+              />
               <Stack.Screen
                 name="HomePage"
                 component={HomePage}
@@ -53,6 +54,9 @@ export default function App() {
                   headerShown: false,
                 }}
               />
+              <Stack.Screen 
+                name="UpdateUserProfile" 
+                  component={UpdateUserProfile} />
             </Stack.Navigator>
           </KeyboardAvoidingView>
         </SafeAreaProvider>

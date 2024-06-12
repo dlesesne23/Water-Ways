@@ -8,8 +8,8 @@ require("dotenv").config()
 const userCtrl = require("./controllers/userController")
 
 // Middleware
-const corsOptions = { origin: ['http://localhost:19006', 'http://192.168.1.x:19000'] } // Replace with your actual Expo IPcredentials: true, // Allow credentials if neededmethods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], };
-app.use(cors(corsOptions));             
+// const corsOptions = { origin: ['http://localhost:19006', 'http://192.168.1.x:19000'] } // Replace with your actual Expo IPcredentials: true, // Allow credentials if neededmethods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], };
+app.use(cors());             
 // app.use(cookieParser());
 //Promise based HTTP client for making requests to external API
 // const axios = require("axios") 
@@ -18,6 +18,9 @@ app.use(express.json())
 //HTTP request logger middleware for node.js
 // const morgan = require("morgan")
 // app.use(morgan("tiny"))
+app.get("/home", (req, res) => {
+    res.send("Water Ways App!");
+})
 
 app.use("/user", userCtrl)
 
