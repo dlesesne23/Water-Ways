@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Image } from "react-native";
+import { Icon } from "react-native-elements/dist/icons/Icon";
 import tw from "tailwind-react-native-classnames";
 import NavFavorites from "../components/NavFavorites";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -7,12 +8,22 @@ import { useDispatch } from "react-redux";
 import { setDestination, setOrigin } from "../slices/navSlice";
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import NavOptions from "../components/NavOptions";
+import { useNavigation } from "@react-navigation/native";
 
 const HomePage = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("UpdateUserProfile")}
+        style={[
+          tw`bg-gray-100 absolute top-8 right-8 z-50 p-3 rounded-full shadow-lg`,
+        ]}
+      >
+        <Icon name="menu" />
+      </TouchableOpacity>
       <View style={tw`p-5`}>
         <Image
           style={{ width: 100, height: 100, resizeMode: "contain" }}

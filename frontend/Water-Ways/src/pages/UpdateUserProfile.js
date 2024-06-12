@@ -1,10 +1,12 @@
 import React from 'react'
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Alert, Button } from 'react-native';
 import axios from 'axios'
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useState, useEffect } from 'react'
 
 const UpdateUserProfile = ({ navigation }) => {
-    const [user, setUser] = useState({ email: '', name: '' });
+    const [user, setUser] = useState({ email: '', username: '', password: '' });
     const [isLoading, setIsLoading] = useState(true);
   
     useEffect(() => {
@@ -68,9 +70,9 @@ const UpdateUserProfile = ({ navigation }) => {
         <Text style={styles.title}>User Profile</Text>
         <TextInput
           style={styles.input}
-          placeholder="Name"
-          value={user.name}
-          onChangeText={(name) => setUser({ ...user, name })}
+          placeholder="Username"
+          value={user.username}
+          onChangeText={(username) => setUser({ ...user, username })}
         />
         <TextInput
           style={styles.input}
@@ -79,6 +81,12 @@ const UpdateUserProfile = ({ navigation }) => {
           onChangeText={(email) => setUser({ ...user, email })}
           keyboardType="email-address"
           autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          value={user.password}
+          onChangeText={(password) => setUser({ ...user, password })}
         />
         <Button title="Update Profile" onPress={handleUpdate} />
         <Button title="Delete Profile" onPress={handleDelete} color="red" />

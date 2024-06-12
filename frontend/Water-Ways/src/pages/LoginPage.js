@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';

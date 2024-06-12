@@ -35,11 +35,11 @@ export default function App() {
               {/* <Stack.Screen
                 name="LoginPage"
                 component={LoginPage}
-              /> */}
+              />
               <Stack.Screen
                 name="SignupPage"
                 component={SignupPage}
-              />
+              /> */}
               <Stack.Screen
                 name="HomePage"
                 component={HomePage}
