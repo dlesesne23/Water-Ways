@@ -9,83 +9,77 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { APP_NAME } from '@env'
 
 
-const SignupPage = ({ navigation }) => {
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+const SignupScreen = ({ navigation, route }) => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { role } = route.params; // 'user' or 'driver'
 
-  
-    const handleSignup = async () => {
-  console.log(APP_NAME)
-      try {
-        const response = await axios.post(`${APP_NAME}user/signup`, {
-          email,
-          username,
-          password,
-        });
-        const { token } = response.data;
-        await AsyncStorage.setItem('jwt_token', token);
-        Alert.alert('Signup Successful', 'You are now registered!');
-        // Navigate to the home screen or another part of the app
-        navigation.navigate('HomePage');
-      } catch (error) {
-        Alert.alert('Signup Failed', 'There was an error registering your account');
-        console.error(error);
+  const handleSignup = async () => {
+    try {
+      const response = await fetch(`${APP_NAME}/user/signup/${role}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Signup failed');
       }
-    };
+
+      const { token } = await response.json();
+      await AsyncStorage.setItem('token', token);
+      navigation.navigate('Home');
+    } catch (error) {
+      Alert.alert('Error', error.message);
+    }
+  };
 
   return (
     <View style={styles.container}>
-    <Text style={styles.title}>Signup</Text>
-    <TextInput
-      style={styles.input}
+      <TextInput
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername}
+        keyboardType="username"
+        autoCapitalize="none"
+        style={styles.input}
+      />
+      <TextInput
       placeholder="Email"
       value={email}
       onChangeText={setEmail}
       keyboardType="email-address"
       autoCapitalize="none"
-    />
-    <TextInput
       style={styles.input}
-      placeholder="Username"
-      value={username}
-      onChangeText={setUsername}
-      keyboardType="username"
-      autoCapitalize="none"
     />
-    <TextInput
-      style={styles.input}
-      placeholder="Password"
-      value={password}
-      onChangeText={setPassword}
-      secureTextEntry
-      autoCapitalize="none"
-    />
-    <TouchableOpacity onPress={e =>handleSignup()} >
-        <Text className="text-xl text-white font-bold text-center">Signup</Text>
-    </TouchableOpacity>
-  </View>
-  )
-}
+      <TextInput
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+        style={styles.input}
+      />
+      <Button title="Sign Up" onPress={handleSignup} />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      padding: 16,
-    },
-    title: {
-      fontSize: 24,
-      marginBottom: 16,
-      textAlign: 'center',
-    },
-    input: {
-      height: 40,
-      borderColor: 'gray',
-      borderWidth: 1,
-      marginBottom: 12,
-      paddingHorizontal: 8,
-    },
-  });
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  input: {
+    width: 200,
+    padding: 10,
+    margin: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+});
 
-export default SignupPage
+export default SignupScreen;

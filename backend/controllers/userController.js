@@ -50,6 +50,7 @@ router.post('/signup/user', async (req, res) => {
         username: username,
         email: email,
         password: password,
+        license: license,
       });
       // Save the new user
       await newDriver.save();
@@ -76,9 +77,9 @@ router.post('/signin/user', async (req, res) => {
       if (!foundUser) throw new Error(`No user found with username ${username}`)
       const validPassword = await bcrypt.compare(password, foundUser.password)
       if (!validPassword) throw new Error(`The password credentials shared did not match the credentials for the user with username ${username}`)
-      const token = createToken(foundUser)
+      const token = createToken(user._id, "foundUser")
     user = foundUser
-      res.json({ token, user: foundUser })
+      res.json({ token })
     } catch (error) {
       res.status(400).json({ msg: error.message })
     }
@@ -92,9 +93,9 @@ router.post('/signin/user', async (req, res) => {
       if (!foundDriver) throw new Error(`No user found with username ${username}`)
       const validPassword = await bcrypt.compare(password, foundDriver.password)
       if (!validPassword) throw new Error(`The password credentials shared did not match the credentials for the user with username ${username}`)
-      const token = createToken(foundDriver)
+      const token = createToken(driver._id, "foundDriver")
     driver = foundDriver
-      res.json({ token, user: foundDriver })
+      res.json({ token })
     } catch (error) {
       res.status(400).json({ msg: error.message })
     }
