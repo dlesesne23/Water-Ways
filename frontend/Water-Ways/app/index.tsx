@@ -36,7 +36,7 @@ export default function App() {
                 name="LoginPage"
                 component={LoginPage}
               /> */}
-              <Stack.Screen
+              {/* <Stack.Screen
                 name="SignupPage"
                 component={SignupPage}
               />
@@ -46,7 +46,7 @@ export default function App() {
                 options={{
                   headerShown: false,
                 }}
-              />
+              /> */}
               <Stack.Screen
                 name="RidePage"
                 component={RidePage}
