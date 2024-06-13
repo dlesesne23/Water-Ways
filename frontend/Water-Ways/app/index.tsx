@@ -35,11 +35,11 @@ export default function App() {
               {/* <Stack.Screen
                 name="LoginPage"
                 component={LoginPage}
-              />
+              /> */}
               <Stack.Screen
                 name="SignupPage"
                 component={SignupPage}
-              /> */}
+              />
               <Stack.Screen
                 name="HomePage"
                 component={HomePage}
@@ -56,7 +56,8 @@ export default function App() {
               />
               <Stack.Screen 
                 name="UpdateUserProfile" 
-                  component={UpdateUserProfile} />
+                  component={UpdateUserProfile} 
+                  />
             </Stack.Navigator>
           </KeyboardAvoidingView>
         </SafeAreaProvider>

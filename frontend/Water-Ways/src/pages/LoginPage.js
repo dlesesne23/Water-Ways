@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput } from 'react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react'
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { APP_NAME } from '@env'
 
 const LoginPage = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -13,7 +14,7 @@ const LoginPage = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost/user/login', {
+      const response = await axios.post (`${APP_NAME}user/login`, {
         username,
         password,
       });

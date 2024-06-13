@@ -1,9 +1,11 @@
 import React from 'react'
-import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Alert, Button } from 'react-native';
+import { View, Text, Image, TextInput, StyleSheet, Alert, Button } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import axios from 'axios'
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState, useEffect } from 'react'
+import { APP_NAME } from '@env'
 
 const UpdateUserProfile = ({ navigation }) => {
     const [user, setUser] = useState({ email: '', username: '', password: '' });
@@ -14,12 +16,13 @@ const UpdateUserProfile = ({ navigation }) => {
       const fetchUserProfile = async () => {
         try {
           const token = await AsyncStorage.getItem('jwt_token');
-          const response = await axios.get('https://your-api-endpoint.com/profile', {
+          const response = await axios.get(`${APP_NAME}user/${user._id}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
           });
           setUser(response.data);
+          console.log(response.data)
           setIsLoading(false);
         } catch (error) {
           console.error(error);
@@ -32,7 +35,7 @@ const UpdateUserProfile = ({ navigation }) => {
     const handleUpdate = async () => {
       try {
         const token = await AsyncStorage.getItem('jwt_token');
-        const response = await axios.put('https://your-api-endpoint.com/profile', user, {
+        const response = await axios.put(`${APP_NAME}user/${user._id}`, user, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -47,7 +50,7 @@ const UpdateUserProfile = ({ navigation }) => {
     const handleDelete = async () => {
       try {
         const token = await AsyncStorage.getItem('jwt_token');
-        await axios.delete('https://your-api-endpoint.com/profile', {
+        await axios.delete(`${APP_NAME}user/${user._id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
