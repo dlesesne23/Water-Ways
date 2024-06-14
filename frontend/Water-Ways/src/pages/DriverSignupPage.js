@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, Image, TextInput, StyleSheet, Alert } from 'react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { APP_NAME } from '@env'
 
 
-const SignupPage = ({ navigation, route }) => {
+const DriverSignupPage = ({ navigation, route }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ const SignupPage = ({ navigation, route }) => {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch(`${APP_NAME}/user/signup`, {
+      const response = await fetch(`${APP_NAME}/driver/signup/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const SignupPage = ({ navigation, route }) => {
 
       const { token } = await response.json();
       await AsyncStorage.setItem('token', token);
-      navigation.navigate('HomePage');
+      navigation.navigate('Home');
     } catch (error) {
       Alert.alert('Error', error.message);
     }
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignupPage;
+export default DriverSignupPage;

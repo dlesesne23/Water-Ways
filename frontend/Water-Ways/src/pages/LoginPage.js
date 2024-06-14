@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, AsyncStorage, Alert, StyleSheet } from 'react-native';
+import { View, TextInput, Button, Alert, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { APP_NAME } from '@env'
@@ -7,11 +7,10 @@ import { APP_NAME } from '@env'
 const LoginPage = ({ navigation, route }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { role } = route.params; // 'user' or 'driver'
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`${APP_NAME}/user/login/${role}`, {
+      const response = await fetch(`${APP_NAME}/user/login/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,6 +46,14 @@ const LoginPage = ({ navigation, route }) => {
         style={styles.input}
       />
       <Button title="Login" onPress={handleLogin} />
+      <TouchableOpacity>
+        <Text>Don't have an account?</Text>
+        <Text onPress={() => navigation.navigate('SignupPage')}>Signup</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text>Are you a driver?</Text>
+        <Text onPress={() => navigation.navigate('DriverLoginPage')}>Driver Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -55,14 +62,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    padding: 16,
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 16,
+    textAlign: 'center',
   },
   input: {
-    width: 200,
-    padding: 10,
-    margin: 10,
+    height: 40,
+    borderColor: 'gray',
     borderWidth: 1,
-    borderRadius: 5,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+  },
+  text: {
+    marginTop: 16,
+    color: 'blue',
+    textAlign: 'center',
   },
 });
 

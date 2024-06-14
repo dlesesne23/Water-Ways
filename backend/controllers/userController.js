@@ -39,7 +39,7 @@ router.post('/signup/user', async (req, res) => {
 
   router.post('/signup/driver', async (req, res) => {
     try {
-      const { username, email, password } = req.body;
+      const { username, email, password, license } = req.body;
       // Check if user already exists
       const existingDriver = await db.Driver.findOne({ username });
       if (existingDriver) {

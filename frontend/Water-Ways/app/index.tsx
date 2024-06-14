@@ -1,4 +1,4 @@
-import React { useContext }from "react";
+import React from "react";
 import { store } from "../store";
 import { Provider } from "react-redux";
 import "react-native-gesture-handler";
@@ -9,6 +9,8 @@ import RidePage from "../src/pages/RidePage";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginPage from "../src/pages/LoginPage";
 import SignupPage from "../src/pages/SignupPage";
+import DriverLoginPage from "../src/pages/DriverLoginPage";
+import DriverSignupPage from "../src/pages/DriverSignupPage";
 import { View, Text } from "react-native";
 import UpdateUserProfile from "../src/pages/UpdateUserProfile";
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,12 +22,11 @@ import { NavigationContainer } from '@react-navigation/native';
 // - Places API
 // - Distance Matrix API
 
-const Stack = createStackNavigator();
-
-const AppNavigator = () => {
-  const { token } = useContext(AuthContext);
+export default function App() {
+  const Stack = createStackNavigator();
 
   return (
+    <Provider store={store}>
       
         <SafeAreaProvider>
           <KeyboardAvoidingView
@@ -34,25 +35,35 @@ const AppNavigator = () => {
             keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
           > 
             <Stack.Navigator>
-            <Stack.Screen name="UserLogin">
-            {(props) => <LoginPage {...props} role="user" />}
-          </Stack.Screen>
-          <Stack.Screen name="DriverLogin">
-            {(props) => <LoginPage {...props} role="driver" />}
-          </Stack.Screen>
-          <Stack.Screen name="UserSignup">
-            {(props) => <SignupPage {...props} role="user" />}
-          </Stack.Screen>
-          <Stack.Screen name="DriverSignup">
-            {(props) => <SignupPage {...props} role="driver" />}
-          </Stack.Screen>
+              <Stack.Screen
+                name="LoginPage"
+                component={LoginPage}
+              />
+              <Stack.Screen
+                name="SignupPage"
+                component={SignupPage}
+              />
+              <Stack.Screen
+                name="DriverLoginPage"
+                component={DriverLoginPage}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="DriverSignupPage"
+                component={DriverSignupPage}
+                options={{
+                  headerShown: false,
+                }}
+              />
               <Stack.Screen
                 name="HomePage"
                 component={HomePage}
                 options={{
                   headerShown: false,
                 }}
-              /> */}
+              />
               <Stack.Screen
                 name="RidePage"
                 component={RidePage}
@@ -68,17 +79,6 @@ const AppNavigator = () => {
           </KeyboardAvoidingView>
         </SafeAreaProvider>
       
-  );
-}
-
-const App = () => {
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <AppNavigator />
-      </NavigationContainer>
     </Provider>
   );
-};
-
-export default App;
+}
