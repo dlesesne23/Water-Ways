@@ -6,18 +6,24 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Alert,
 } from "react-native";
 import { Icon } from "react-native-elements";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { selectTravelTimeInformation } from "../slices/navSlice";
+import { selectTravelTimeInformation, selectDestination, selectOrigin } from "../slices/navSlice";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { APP_NAME } from '@env'
 
 const RideOptions = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
   const travelTimeInformation = useSelector(selectTravelTimeInformation);
+  const origin = useSelector(selectOrigin);
+  const destination = useSelector(selectDestination);
 
   // If we have SURGE pricing, this goes up
   const SURGE_CHARGE_RATE = 1.5;
@@ -42,6 +48,26 @@ const RideOptions = () => {
       image: require("../../assets/images/uberBlack.png"),
     },
   ];
+
+  const handleRequestRide = async () => {
+    try {
+      const token = await AsyncStorage.getItem('jwt_token');
+      const response = await axios.post(`${APP_NAME}/request`, {
+        currentLocation: origin.description,
+        destination: destination.description,
+        rideOption: selected?.title,
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      Alert.alert('Ride Requested', 'Your ride request has been submitted successfully!');
+      navigation.navigate('RidePage');  
+    } catch (error) {
+      Alert.alert('Request Failed', 'There was an error requesting your ride');
+      console.error(error);
+    }
+  };
 
   return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
@@ -72,7 +98,7 @@ const RideOptions = () => {
                 height: 100,
                 resizeMode: "contain",
               }}
-              source={{ uri: image }}
+              source={image}
             />
             <View style={tw`-ml-6`}>
               <Text style={tw`text-lg font-semibold`}>{title}</Text>
@@ -98,6 +124,7 @@ const RideOptions = () => {
         <TouchableOpacity
           disabled={!selected}
           style={tw`bg-black py-3 m-3 ${!selected && "bg-gray-300"}`}
+          onPress={handleRequestRide}
         >
           <Text style={tw`text-center text-white text-xl`}>
             Choose {selected?.title}

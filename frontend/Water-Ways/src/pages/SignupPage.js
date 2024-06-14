@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react'
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { APP_NAME } from '@env'
 
 
 const SignupPage = ({ navigation }) => {
@@ -17,7 +18,7 @@ const SignupPage = ({ navigation }) => {
     const handleSignup = async () => {
   
       try {
-        const response = await axios.post('http://localhost:3000/user/signup', {
+        const response = await axios.post(`${APP_NAME}/user/signup`, {
           email,
           username,
           password,
