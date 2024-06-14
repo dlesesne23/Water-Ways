@@ -9,14 +9,18 @@ import MapComponent from "../components/MapComponent";
 import { useNavigation } from "@react-navigation/native";
 import { View, StyleSheet, Button, Text, ActivityIndicator, Alert } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import * as Location from 'expo-location';
 import { requestRide } from '../components/Services';
-import io from 'socket.io-client';
 import { APP_NAME } from '@env'
 
 const RidePage = () => {
   const Stack = createStackNavigator();
   const navigation = useNavigation();
+
+const handleLogout = async () => {
+    await AsyncStorage.removeItem('token');
+    dispatch(logout());
+    navigation.navigate('LoginPage');
+  };
 
   return (
     <View>
@@ -28,6 +32,10 @@ const RidePage = () => {
       >
         <Icon name="menu" />
       </TouchableOpacity>
+
+      <View style={styles.container}>
+      <Button title="Logout" onPress={handleLogout} />
+    </View>
 
       <View style={tw`h-1/2`}>
         <MapComponent />
@@ -53,5 +61,13 @@ const RidePage = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default RidePage;

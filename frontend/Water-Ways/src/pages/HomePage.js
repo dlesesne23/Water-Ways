@@ -14,6 +14,12 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
+  const handleLogout = async () => {
+    await AsyncStorage.removeItem('token');
+    dispatch(logout());
+    navigation.navigate('UserLogin'); // or any other screen you want to navigate to
+  };
+
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
       <TouchableOpacity
@@ -24,6 +30,12 @@ const HomePage = () => {
       >
         <Icon name="menu" />
       </TouchableOpacity>
+
+      <View style={styles.container}>
+        <Button title="Logout" onPress={handleLogout} />
+      </View>
+
+
       <View style={tw`p-5`}>
         <Image
           style={{ width: 100, height: 100, resizeMode: "contain" }}
