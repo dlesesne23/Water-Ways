@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, Button, TextInput } from 'react-native';
+import { View, Text, Image, StyleSheet, Button, TextInput, Alert } from 'react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react'
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { APP_NAME } from '@env'
 
 const LoginPage = ({ navigation }) => {
   const [username, setUsername] = useState('');

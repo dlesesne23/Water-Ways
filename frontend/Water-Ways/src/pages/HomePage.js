@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Image } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Image, Button } from "react-native";
 import { Icon } from "react-native-elements/dist/icons/Icon";
 import tw from "tailwind-react-native-classnames";
 import NavFavorites from "../components/NavFavorites";
@@ -9,6 +9,8 @@ import { setDestination, setOrigin } from "../slices/navSlice";
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import NavOptions from "../components/NavOptions";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { logout } from '../components/AuthActions';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const HomePage = () => {
   const handleLogout = async () => {
     await AsyncStorage.removeItem('token');
     dispatch(logout());
-    navigation.navigate('UserLogin'); // or any other screen you want to navigate to
+    navigation.navigate('LoginPage'); // or any other screen you want to navigate to
   };
 
   return (
@@ -80,5 +82,13 @@ const HomePage = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default HomePage;

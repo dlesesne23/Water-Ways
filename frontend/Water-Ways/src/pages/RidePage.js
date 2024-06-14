@@ -8,6 +8,8 @@ import RideOptions from "../components/RideOptions";
 import MapComponent from "../components/MapComponent";
 import { useNavigation } from "@react-navigation/native";
 import { View, StyleSheet, Button, Text, ActivityIndicator, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { logout } from '../components/AuthActions';
 import MapView, { Marker } from 'react-native-maps';
 import { requestRide } from '../components/Services';
 import { APP_NAME } from '@env'
@@ -25,7 +27,7 @@ const handleLogout = async () => {
   return (
     <View>
       <TouchableOpacity
-        onPress={() => navigation.navigate("HomeScreen")}
+        onPress={() => navigation.navigate("HomePage")}
         style={[
           tw`bg-gray-100 absolute top-16 left-8 z-50 p-3 rounded-full shadow-lg`,
         ]}
