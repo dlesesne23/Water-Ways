@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
+const socketIo = require('socket.io');
+const http = require('http');
+
+const server = http.createServer(app);
+const io = socketIo(server);
 
 require("dotenv").config()
 
 // const db = require('./models')
 const userCtrl = require("./controllers/userController")
 const rideCtrl = require("./controllers/rideController")
-const driverCtrl = require("./controllers/driverController")
 
 // Middleware
 // const corsOptions = { origin: ['http://localhost:19006', 'http://192.168.1.x:19000'] } // Replace with your actual Expo IPcredentials: true, // Allow credentials if neededmethods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], };
@@ -26,7 +30,14 @@ app.get("/home", (req, res) => {
 
 app.use("/user", userCtrl)
 app.use("/ride", rideCtrl)
-app.use("/driver", driverCtrl)
+
+io.on('connection', (socket) => {
+    console.log('New client connected');
+  
+    socket.on('disconnect', () => {
+      console.log('Client disconnected');
+    });
+  });
 
 //I.N.D.U.C.E.S.
 // Index route

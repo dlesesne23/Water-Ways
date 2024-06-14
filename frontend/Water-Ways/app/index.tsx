@@ -9,8 +9,11 @@ import RidePage from "../src/pages/RidePage";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginPage from "../src/pages/LoginPage";
 import SignupPage from "../src/pages/SignupPage";
+import DriverLoginPage from "../src/pages/DriverLoginPage";
+import DriverSignupPage from "../src/pages/DriverSignupPage";
 import { View, Text } from "react-native";
 import UpdateUserProfile from "../src/pages/UpdateUserProfile";
+import { NavigationContainer } from '@react-navigation/native';
 
 // The Google API's we use in this project are:
 // https://console.cloud.google.com/google/maps-apis/api-list
@@ -32,14 +35,28 @@ export default function App() {
             keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
           > 
             <Stack.Navigator>
-              {/* <Stack.Screen
+              <Stack.Screen
                 name="LoginPage"
                 component={LoginPage}
-              /> */}
-              {/* <Stack.Screen
+              />
+              <Stack.Screen
                 name="SignupPage"
                 component={SignupPage}
-              /> */}
+              />
+              <Stack.Screen
+                name="DriverLoginPage"
+                component={DriverLoginPage}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="DriverSignupPage"
+                component={DriverSignupPage}
+                options={{
+                  headerShown: false,
+                }}
+              />
               <Stack.Screen
                 name="HomePage"
                 component={HomePage}

@@ -1,37 +1,30 @@
-import { View, Text, Image, TextInput, Button, StyleSheet, Alert } from 'react-native';
-import React from 'react';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
-import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react'
+import React, { useState } from 'react';
+import { View, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { APP_NAME } from '@env'
 
-
-const SignupPage = ({ navigation, route }) => {
+const DriverLoginPage = ({ navigation, route }) => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-
-  const handleSignup = async () => {
+  const handleLogin = async () => {
     try {
-      const response = await fetch(`${APP_NAME}/user/signup`, {
+      const response = await fetch(`${APP_NAME}/driver/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (!response.ok) {
-        throw new Error('Signup failed');
+        throw new Error('Invalid credentials');
       }
 
       const { token } = await response.json();
       await AsyncStorage.setItem('token', token);
-      navigation.navigate('HomePage');
+      navigation.navigate('Home');
     } catch (error) {
       Alert.alert('Error', error.message);
     }
@@ -46,19 +39,13 @@ const SignupPage = ({ navigation, route }) => {
         style={styles.input}
       />
       <TextInput
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        style={styles.input}
-      />
-      <TextInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
         style={styles.input}
       />
-      <Button title="Sign Up" onPress={handleSignup} />
+      <Button title="Login" onPress={handleLogin} />
     </View>
   );
 };
@@ -78,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignupPage;
+export default DriverLoginPage;
