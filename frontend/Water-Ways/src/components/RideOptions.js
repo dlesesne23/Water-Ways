@@ -52,7 +52,7 @@ const RideOptions = () => {
   const handleRequestRide = async () => {
     try {
       const token = await AsyncStorage.getItem('jwt_token');
-      const response = await axios.post(`${APP_NAME}/request`, {
+      const response = await axios.post(`${APP_NAME}/request-ride`, {
         currentLocation: origin.description,
         destination: destination.description,
         rideOption: selected?.title,
