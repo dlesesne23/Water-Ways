@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, StyleSheet, Alert } from 'react-native';
+import { View, Text, Image, TextInput, StyleSheet, Button, Alert } from 'react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
@@ -13,6 +13,7 @@ const DriverSignupPage = ({ navigation, route }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [license, setLicense] = useState('');
 
 
   const handleSignup = async () => {
@@ -22,7 +23,7 @@ const DriverSignupPage = ({ navigation, route }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ username, email, password, license }),
       });
 
       if (!response.ok) {
@@ -55,6 +56,13 @@ const DriverSignupPage = ({ navigation, route }) => {
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
+        secureTextEntry
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="License"
+        value={license}
+        onChangeText={setLicense}
         secureTextEntry
         style={styles.input}
       />
